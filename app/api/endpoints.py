@@ -8,6 +8,9 @@ from app.services import summarize, text_to_speech
 
 router = APIRouter()
 
+# TODO: rewrite the function to use a more robust logging system and error
+# handling
+
 
 @router.post("/summarize")
 async def summarize_text(request: SummarizeRequest):
@@ -25,10 +28,6 @@ async def summarize_text(request: SummarizeRequest):
 
         try:
             audio_path = text_to_speech(summary)
-            if isinstance(audio_path, Exception):
-                logging.error(f"Audio generation failed: {audio_path}")
-                raise HTTPException(
-                    status_code=500, detail="Audio generation failed.")
             audio_url = f"/audio/{os.path.basename(audio_path)}"
 
         except Exception as e:

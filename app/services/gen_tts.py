@@ -7,6 +7,11 @@ from gtts import gTTS
 def text_to_speech(text: str, lang="en", slow=False) -> str:
     """
     Convert text to speech using gTTS
+
+    :param text: Text to convert to speech
+    :param lang: Language for TTS 
+    :param slow: Slow speech flag
+    :return: Path to the saved audio file
     """
     try:
         # Find OS's temp directory

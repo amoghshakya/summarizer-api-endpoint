@@ -39,6 +39,10 @@ Or use `environment.yml` if you are using conda.
 conda create --name <env> --file <this file>
 ```
 
+## Configuration
+
+The model's path can be set within `app/config.py` file.
+
 ## Running the Application
 
 ```sh
