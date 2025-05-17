@@ -33,11 +33,13 @@ def summarize(text: str, max_length: int = 256, min_length: int = 30) -> str:
             max_length=max_length,
             min_length=min_length,
             length_penalty=1.5,  # penalize >1.0: longer summaries, <1.0: shorter summaries
-            num_beams=3,  # beam search (consider 4 candidates at each step)
-            early_stopping=False,  # continue until max length or EOS
-            repetition_penalty=2.0,  # avoid repeating phrases
+            num_beams=4,  # beam search (consider 4 candidates at each step)
+            early_stopping=True,  # continue until max length or EOS
+            repetition_penalty=3.0,  # avoid repeating phrases
             no_repeat_ngram_size=3,
-            do_sample=True
+            do_sample=True,
+            top_k=50,
+            temperature=0.7
         )
 
     summary = tokenizer.decode(summary_ids[0], skip_special_tokens=True)

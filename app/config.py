@@ -1,1 +1,1 @@
-MODEL_PATH = "bart-finetuned-seq/"
+MODEL_PATH = "amoghshakya/summarizer"
